@@ -33,7 +33,6 @@ class Autoloader
                 include_once $file;
                 break;
             }
-
         }
         foreach (self::$replacePath as $searchStr => $replaceStr) {
             $className = str_replace($searchStr, $replaceStr, $className);
@@ -43,7 +42,6 @@ class Autoloader
         if (is_file($file)) {
             var_dump(1234,$file);
             include_once $file;
-
         }
     }
 

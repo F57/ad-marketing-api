@@ -9,7 +9,8 @@
 require __DIR__ . '/../../index.php';
 require __DIR__ . '/../config.php';
 
-$client = new ToutiaoSdk\TouTiaoClient(TOKEN);
+$auth = new ToutiaoSdk\ToutiaoAuth(APPID, SECRET);
+$client = $auth->makeClient(TOKEN);
 
 $req = $client::Dmp()->customAudienceRule();
 $args = [];

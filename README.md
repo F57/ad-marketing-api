@@ -9,7 +9,7 @@ composer require 57feng/ads-marketing-api
 
 ## Requirements
 
-- PHP 5.4 +
+- PHP 7.0 +
 
 ## Directory Structure
 ```
@@ -85,10 +85,10 @@ var_dump($req->getBody());
 
  数据报表|执行方式 
  ------------- | -------------
- 广告主数据（新版）|$client::Report()->advertiserGet()| 
- 广告组数据（新版）|$client::Report()->campaignGet() | 
- 广告计划数据（新版）|$client::Report()->adGet() | 
- 广告创意数据（新版）|$client::Report()->creativeGet() | 
+ 广告主数据|$client::Report()->advertiserGet()| 
+ 广告组数据|$client::Report()->campaignGet() | 
+ 广告计划数据|$client::Report()->adGet() | 
+ 广告创意数据|$client::Report()->creativeGet() | 
  受众分析（省级数据）|$client::Report()->audienceProvince() | 
  受众分析（性别数据）|$client::Report()->audienceGender()| 
  受众分析（性别数据）|$client::Report()->audienceGender()| 

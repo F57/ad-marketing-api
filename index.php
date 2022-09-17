@@ -6,7 +6,7 @@
  * Email: 
  */
 
-use  core\Autoloader\Autoloader;
+use core\Autoloader\Autoloader;
 
 require_once __DIR__ . '/core/Autoloader/Autoloader.php';
 Autoloader::loadDirectories();
