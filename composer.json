@@ -1,0 +1,36 @@
+{
+    "name": "57feng/ads-marketing-api",
+    "description": "巨量引擎 MarketingApi SDK",
+    "keywords": [
+        "巨量引擎",
+        "头条",
+        "marketing-api",
+        "sdk"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0"
+    },
+    "authors": [
+        {
+            "name": "57F",
+            "email": ""
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "ToutiaoSdk\\": "core/Profile/",
+            "core\\": "core/",
+            "Report\\": "Report/",
+            "Dmp\\": "Dmp/",
+            "AdvertisingDelivery\\": "AdvertisingDelivery/",
+            "AdvertisingOriginality\\": "AdvertisingOriginality/",
+            "AdvertisingPlan\\": "AdvertisingPlan/",
+            "AuthenticationOauth\\": "AuthenticationOauth/",
+            "Tool\\": "Tool/",
+            "Advertiser\\": "Advertiser/"
+        }
+    }
+}
