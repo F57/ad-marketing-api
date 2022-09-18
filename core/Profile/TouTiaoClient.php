@@ -23,6 +23,8 @@ class TouTiaoClient
 
     public static $is_sanbox = false;
 
+    public static $is_debug = 0;
+
     private static $instance = null;
 
     // 禁止被实例化
@@ -36,6 +38,7 @@ class TouTiaoClient
     {
         static::$access_token = $access_token;
         if (null !== $is_sanbox) static::$is_sanbox = $is_sanbox;
+        if (null !== $is_sanbox) static::$is_debug = (int) $is_sanbox;
         if (null !== $server_url) static::$server_url = $server_url;
         if (null !== $box_url) static::$box_url = $box_url;
         if (empty(self::$instance[$access_token])) {
@@ -57,8 +60,11 @@ class TouTiaoClient
         $headers = [
             'Access-Token' => static::$access_token,
             'Content-Type' => $request->getContentType(),
-            'X-Debug-Mode' => 1,
         ];
+        if(static::$is_debug){
+            $headers['X-Debug-Mode'] = static::$is_debug;
+        }
+
         if (null == $url) {
             $url = $request->getUrl();
             if ('' == $url) {
