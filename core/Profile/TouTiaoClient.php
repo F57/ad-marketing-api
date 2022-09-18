@@ -32,7 +32,7 @@ class TouTiaoClient
     private function __clone(){}
 
     //  实例化自己并保存到$instance中，已实例化则直接调用
-    public static function getInstance($access_token, $is_sanbox, $server_url, $box_url): object
+    public static function getInstance($access_token, $is_sanbox = null, $server_url = null, $box_url = null): object
     {
         static::$access_token = $access_token;
         if (null !== $is_sanbox) static::$is_sanbox = $is_sanbox;
