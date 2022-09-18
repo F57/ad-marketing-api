@@ -13,6 +13,14 @@ use core\Profile\BaseModule;
 
 class Module extends BaseModule
 {
+    public function agentAdvertise()
+    {
+        return new AgentAdvertise($this->client);
+    }
+    public function childAgentAdvertise()
+    {
+        return new ChildAgentAdvertise($this->client);
+    }
     public function majordomoAdvertise()
     {
         return new MajordomoAdvertise($this->client);
