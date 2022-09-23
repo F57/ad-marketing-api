@@ -62,7 +62,7 @@ class ToutiaoAuth
             $url = ($this->is_sanbox ? $this->box_url : $this->server_url) . $request->getUrl();
         }
 
-        return HttpRequest::curl($url, $request->getMethod(), json_encode($params), $headers);
+        return HttpRequest::curl($url, $request->getMethod(), $params, $headers);
     }
 
     /**

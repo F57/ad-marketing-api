@@ -35,18 +35,25 @@ class HttpRequest
     {
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $httpMethod);
         if (defined("ENABLE_HTTP_PROXY") && defined("HTTP_PROXY_IP") && defined("HTTP_PROXY_PORT") && ENABLE_HTTP_PROXY) {
             curl_setopt($ch, CURLOPT_PROXYAUTH, CURLAUTH_BASIC);
             curl_setopt($ch, CURLOPT_PROXY, HTTP_PROXY_IP);
             curl_setopt($ch, CURLOPT_PROXYPORT, HTTP_PROXY_PORT);
             curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
         }
+        if (strtolower($httpMethod) === 'get') {
+            $url .= ('?' . (is_array($postFields) ? http_build_query($postFields) : $postFields));
+        }
+
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_FAILONERROR, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        curl_setopt($ch, CURLOPT_POSTFIELDS, is_array($postFields) ? self::getPostHttpBody($postFields) : $postFields);
+        if ('post' === strtolower($httpMethod)) {
+            curl_setopt($ch, CURLOPT_POST, 1);
+            $postFields = $headers['Content-Type'] === 'application/json' ? json_encode($postFields) : $postFields;
+            curl_setopt($ch, CURLOPT_POSTFIELDS, is_array($postFields) ? self::getPostHttpBody($postFields) : $postFields);
+        }
 
         if (self::$readTimeout) {
             curl_setopt($ch, CURLOPT_TIMEOUT, self::$readTimeout);

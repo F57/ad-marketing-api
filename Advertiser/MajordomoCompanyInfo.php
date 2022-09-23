@@ -1,6 +1,6 @@
 <?php
 /**
- * 纵横组织资产账户列表
+ * 获取纵横组织下所有主体信息
  * User: 57F
  * Date: 2022/9/17
  * Email: 
@@ -12,19 +12,19 @@ use core\Exception\InvalidParamException;
 use core\Helper\RequestCheckUtil;
 use core\Profile\RpcRequest;
 
-class MajordomoAdvertise extends RpcRequest
+class MajordomoCompanyInfo extends RpcRequest
 {
     /**
      * @var string
      */
     protected $method = 'GET';
-    protected $url = '/2/majordomo/advertiser/select/';
-    protected $content_type = 'text/plain';
+    protected $url = '/v3.0/business_platform/company_info/get/';
+    protected $content_type = 'application/json';
 
     /**
-     * 广告主ID(账户管家ID)
+     * 纵横组织id
      */
-    protected $advertiser_id;
+    protected $organization_id;
 
     /**
      * @param mixed $args
@@ -35,6 +35,7 @@ class MajordomoAdvertise extends RpcRequest
         foreach ($args as $key => $value) {
             $this->params[$key] = $this->{$key} = $value;
         }
+
         return $this;
     }
 
@@ -44,7 +45,7 @@ class MajordomoAdvertise extends RpcRequest
      */
     public function check()
     {
-        RequestCheckUtil::checkNotNull($this->advertiser_id, 'advertiser_id');
+        RequestCheckUtil::checkNotNull($this->organization_id, 'organization_id');
     }
 
 

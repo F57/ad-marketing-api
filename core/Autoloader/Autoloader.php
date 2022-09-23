@@ -29,6 +29,10 @@ class Autoloader
             $file = $directories . DIRECTORY_SEPARATOR . $path . '.php';
             $file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
             if (is_file($file)) {
+<<<<<<< HEAD
+=======
+//                var_dump(123,$file);
+>>>>>>> 189c9d78230b9a62cd90b1722e8b8e7901ac99c5
                 include_once $file;
                 break;
             }
@@ -39,6 +43,10 @@ class Autoloader
         $file = $directories . DIRECTORY_SEPARATOR . $className . '.php';
         $file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
         if (is_file($file)) {
+<<<<<<< HEAD
+=======
+//            var_dump(1234,$file);
+>>>>>>> 189c9d78230b9a62cd90b1722e8b8e7901ac99c5
             include_once $file;
         }
     }

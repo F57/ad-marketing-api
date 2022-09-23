@@ -26,6 +26,11 @@ class Module extends BaseModule
         return new MajordomoAdvertise($this->client);
     }
 
+    public function majordomoCompanyInfo()
+    {
+        return new MajordomoCompanyInfo($this->client);
+    }
+
     public function customerAdvertise()
     {
         return new CustomerAdvertise($this->client);

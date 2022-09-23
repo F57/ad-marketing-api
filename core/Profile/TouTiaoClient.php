@@ -74,9 +74,10 @@ class TouTiaoClient
                 $url = (static::$is_sanbox ? static::$box_url : static::$server_url) . $request->getUrl();
             }
         }
-        if (strpos($request->getContentType(), "json") > 0) {
-            $params = json_encode($params);
-        }
+//        if (strpos($request->getContentType(), "json") > 0) {
+//            $params = json_encode($params);
+//        }
+
         HttpRequest::$readTimeout = $request->getTimeout();
         return HttpRequest::curl($url, $request->getMethod(), $params, $headers);
     }
