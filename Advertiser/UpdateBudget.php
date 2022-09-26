@@ -17,7 +17,7 @@ class UpdateBudget extends RpcRequest
     /**
      * @var string
      */
-    protected $method = 'GET';
+    protected $method = 'POST';
     protected $url = '/2/advertiser/update/budget/';
     protected $content_type = 'application/json';
 
